@@ -1,6 +1,6 @@
 baseURL = "https://osorio.sh/"
 languageCode = "en-us"
-title = "Osório Santos"
+title = "./osorio.sh"
 
 [module]
   [[module.imports]]
@@ -18,7 +18,7 @@ title = "Osório Santos"
     
     ps1Delay = 0
     stdoutDelay = 0
-    commandDelay = 50
+    commandDelay = 40
     titleDelay = 0
     contentDelay = 0
     
@@ -52,6 +52,6 @@ Platform and DevOps Engineer.
     url = "/skills/"
     weight = 3
   [[menu.main]]
-    name = "Articles"
+    name = "Posts"
     url = "/posts/"
     weight = 4

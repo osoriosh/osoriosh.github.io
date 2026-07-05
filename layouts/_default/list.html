@@ -1,0 +1,19 @@
+{{ define "main" }}
+    {{ $title := printf "<h1 id='title'>%s</h1>" .Title}}
+    {{ $title := printf "<span id='terminal'>%s</span>" $title}}
+    
+    {{ $content := "" }}
+    {{ if .Content }}
+        {{ $content = printf "<span id='terminal'>%s</span><br><br>" .Content }}
+    {{ end }}
+    
+    {{ $content = printf "%s<span id='terminal'>$ ls -l</span><br>" $content }}
+    {{ $content = printf "%s<span id='terminal'>total %d</span><br>" $content (len .Pages) }}
+    
+    {{ range .Pages }}
+        {{ $date := .Date.Format "Jan _2 2006" }}
+        {{ $content = printf "%s<span id='terminal'>-rw-r--r-- 1 osorio osorio 4096 %s <a href='%s'>%s</a></span><br>" $content $date .RelPermalink .Title }}
+    {{ end }}
+
+    {{ partial "partials/typeActivity.html" (dict "context" . "title" $title "content" (safeHTML $content) "titledelay" $.Site.Params.Terminal.titleDelay "contentdelay" $.Site.Params.Terminal.contentDelay )}}
+{{ end }}

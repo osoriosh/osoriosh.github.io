@@ -5,7 +5,7 @@ draft: false
 tags: ["DevOps", "CI/CD", "Hugo", "GitHub Actions"]
 ---
 
-# Automating My Portfolio with GitHub Actions
+## Automating My Portfolio with GitHub Actions
 
 Building a portfolio site is one thing, but as a DevOps Engineer, deploying it manually feels like a crime. In this post, I'll walk you through how I automated the deployment of this very Hugo site to GitHub Pages using GitHub Actions.
 
