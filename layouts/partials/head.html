@@ -1,0 +1,87 @@
+<head>
+  <title>{{- if .IsHome }}{{ .Site.Title }}{{- else }}{{ .Title }}{{- end }}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+  {{ partial "partials/style.html" . }}
+
+  <!-- Include Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // MutationObserver to initialize radar chart once it's injected via innerHTML
+    document.addEventListener("DOMContentLoaded", function () {
+      let initTimeout;
+      const observer = new MutationObserver(function (mutations, me) {
+        clearTimeout(initTimeout);
+        initTimeout = setTimeout(() => {
+          const canvases = document.querySelectorAll('.devOpsRadarChart:not([data-initialized="true"])');
+          canvases.forEach(canvas => {
+            canvas.dataset.initialized = 'true';
+            initRadarChart(canvas);
+          });
+        }, 300); // Wait 300ms after the DOM settles
+      });
+
+      // Start observing the document
+      observer.observe(document, {
+        childList: true,
+        subtree: true
+      });
+
+      function initRadarChart(canvas) {
+        const ctx = canvas.getContext('2d');
+        const cyan = '#00f0ff';
+        const darkBg = 'rgba(0, 0, 0, 0.8)';
+        const gridColor = 'rgba(0, 240, 255, 0.3)';
+
+        const data = {
+          labels: [
+            'Cloud Infrastructure', 'Containers & Orchestration', 'CI/CD Pipelines',
+            'Infrastructure as Code', 'Monitoring & Observability', 'Scripting & Dev',
+            'Security (DevSecOps)', 'Networking'
+          ],
+          datasets: [{
+            label: 'Skill Proficiency',
+            data: [85, 90, 65, 80, 65, 70, 70, 70],
+            backgroundColor: 'rgba(0, 240, 255, 0.1)',
+            borderColor: cyan,
+            pointBackgroundColor: cyan,
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: cyan,
+            borderWidth: 2,
+          }]
+        };
+
+        const config = {
+          type: 'radar',
+          data: data,
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: darkBg,
+                titleFont: { family: 'monospace', size: 14 },
+                bodyFont: { family: 'monospace', size: 13 },
+                borderColor: cyan,
+                borderWidth: 1
+              }
+            },
+            scales: {
+              r: {
+                min: 0,
+                max: 100,
+                angleLines: { color: gridColor },
+                grid: { color: gridColor, circular: true },
+                pointLabels: { font: { family: 'monospace', size: 12 }, color: cyan },
+                ticks: { display: false, stepSize: 20 }
+              }
+            }
+          }
+        };
+        new Chart(ctx, config);
+      }
+    });
+  </script>
+</head>

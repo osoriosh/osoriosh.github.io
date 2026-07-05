@@ -1,0 +1,57 @@
+baseURL = "https://osorio.sh/"
+languageCode = "en-us"
+title = "Osório Santos"
+
+[module]
+  [[module.imports]]
+    path = "github.com/Yukuro/hugo-theme-shell"
+
+[Params]
+  description = "Osório's DevOps Portfolio"
+
+  [Params.Terminal]
+    scheme = "Adventure Time"
+    userName = "osorio"
+    pcName = "portfolio"
+    workDir = "~"
+    profile = "profile.txt"
+    
+    ps1Delay = 0
+    stdoutDelay = 0
+    commandDelay = 50
+    titleDelay = 0
+    contentDelay = 0
+    
+    description = """
+Hi, I am Osório Henrique dos Santos.
+Platform and DevOps Engineer.
+"""
+
+  [Params.Tree]
+    use = true
+    folderName = "navigation"
+    files = [
+      ["Resume", "/resume/"],
+      ["Skills", "/skills/"],
+      ["Articles", "/posts/"],
+      ["GitHub", "https://github.com/osoriosh"],
+      ["LinkedIn", "https://linkedin.com/in/osoriosh"]
+    ]
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Resume"
+    url = "/resume/"
+    weight = 2
+  [[menu.main]]
+    name = "Skills"
+    url = "/skills/"
+    weight = 3
+  [[menu.main]]
+    name = "Articles"
+    url = "/posts/"
+    weight = 4
