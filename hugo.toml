@@ -33,7 +33,7 @@ Platform and DevOps Engineer.
     files = [
       ["Resume", "/resume/"],
       ["Skills", "/skills/"],
-      ["Articles", "/posts/"],
+      ["Posts", "/posts/"],
       ["GitHub", "https://github.com/osoriosh"],
       ["LinkedIn", "https://linkedin.com/in/osoriosh"]
     ]

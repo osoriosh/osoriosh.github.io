@@ -3,9 +3,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+  <link rel="icon" href="/favicon.ico" type="image/png">
   {{ partial "partials/style.html" . }}
 
   <!-- Include Chart.js -->
+  <style>
+    /* Fix overlapping letters for long titles that wrap to multiple lines */
+    h1#title {
+      line-height: 1.4 !important;
+      display: inline-block;
+      margin-bottom: 0.5em;
+    }
+  </style>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     // MutationObserver to initialize radar chart once it's injected via innerHTML
