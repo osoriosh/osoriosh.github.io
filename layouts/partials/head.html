@@ -8,11 +8,14 @@
 
   <!-- Include Chart.js -->
   <style>
-    /* Fix overlapping letters for long titles that wrap to multiple lines */
-    h1#title {
+    /* Fix overlapping letters for text that wraps to multiple lines on mobile */
+    h1#title, h1, h2, h3, h4, h5, h6 {
       line-height: 1.4 !important;
       display: inline-block;
       margin-bottom: 0.5em;
+    }
+    p, li {
+      line-height: 1.5 !important;
     }
   </style>
 
