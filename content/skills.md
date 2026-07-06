@@ -17,3 +17,4 @@ draft: false
 - **Scripting & Dev**: Python for automation, Bash for system scripting, AWS Lambda for serverless tasks.
 - **Security (DevSecOps)**: Ensuring environment stability and security for mission-critical workloads.
 - **Networking**: Background in computer networks and telecommunications (VoIP).
+- **English**: B1/B2 (Intermediate)
