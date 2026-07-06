@@ -1,4 +1,4 @@
-module github.com/osoriosh/osoriosh-site
+module github.com/osoriosh/osoriosh.github.io
 
 go 1.19
 
